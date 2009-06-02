@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'block_html'
+#require 'block_html'
 
 module Sinatra
   module BlockHTML
@@ -8,7 +8,7 @@ module Sinatra
 
       options, template = template, nil if template.is_a?(Hash)
       template = lambda { block } if template.nil?
-      render :bhtml, template, options, locals
+      render(:bhtml, template, options, locals).to_s
     end
 
   protected
