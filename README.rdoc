@@ -1,17 +1,20 @@
 = sinatra-block-html
 
-こんな感じのビューを作って
+こんな感じのレイアウトとビューを作って
 
-views/index.bhtml
+views/layout.bhtml
   html {
     tag(:head) {
       title.text @title
     }
     tag(:body) {
-      h1.text @title
-      p.text @contents
+      self << yield
     }
   }
+
+views/index.bhtml
+  h1.text @title
+  p.text @contents
 
 Sinatra の DSL で出力
 
