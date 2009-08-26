@@ -24,4 +24,8 @@ module Sinatra
   end
 
   helpers BlockHTML
+
+  class Base
+    include Sinatra::BlockHTML
+  end
 end

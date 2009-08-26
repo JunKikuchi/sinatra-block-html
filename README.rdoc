@@ -1,1 +1,48 @@
 = sinatra-block-html
+
+こんな感じのビューを作って
+
+views/index.bhtml
+  html {
+    tag(:head) {
+      title.text @title
+    }
+    tag(:body) {
+      h1.text @title
+      p.text @contents
+    }
+  }
+
+Sinatra の DSL で出力
+
+  require 'rubygems'
+  require 'sinatra'
+  require 'sinatra-block-html'
+
+  get '/' do
+    @title = 'Hello World!'
+    @contents = 'こんにちは！'
+
+    bhtml :index
+  end
+
+Sinatra::Base で出力
+
+  require 'rubygems'
+  require 'sinatra/base'
+  require 'sinatra-block-html'
+
+  class App < Sinatra::Base
+    get '/' do
+      @title = 'Hello World!'
+      @contents = 'こんにちは！'
+
+      bhtml :index
+    end
+  end
+
+  use App
+
+すると、こんな HTML が出力されます
+
+  <html><head><title>Hello World!</title></head><body><h1>Hello World!</h1><p>こんにちは！</p></body></html>
