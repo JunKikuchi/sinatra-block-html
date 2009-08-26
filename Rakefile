@@ -18,6 +18,7 @@ begin
     ) + Dir.glob("{bin,doc,spec,lib}/**/*")
     s.require_path = "lib"
     s.has_rdoc = true
+    s.add_dependency('block-html','>= 0.0.0')
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
