@@ -29,6 +29,7 @@ Sinatra の DSL で出力
 Sinatra::Base で出力
 
   require 'rubygems'
+  require 'sinatra'
   require 'sinatra/base'
   require 'sinatra-block-html'
 
