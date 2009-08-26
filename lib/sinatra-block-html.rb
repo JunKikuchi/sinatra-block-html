@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'block_html'
+require 'block-html'
 
 module Sinatra
   module BlockHTML
